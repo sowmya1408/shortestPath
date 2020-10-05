@@ -15,7 +15,7 @@ js-graph-algorithms is a javascript library that provides a graph data structure
 1. Create a graph that looks like the one in the picture through the js-graph-algorithms library. 
     - Initialize your graph with the number of required nodes.
     - Add edges to your graph.
-    - Create a function that takes a graph, a from node and a to node, and print the shortest path between the two nodes.
+    - Create a function that takes a graph, a from node and a to node, and returns the shortest path between the two nodes. I.e. in the example when going from 0 → 3, we want the function to return [1,2,3].
     - Optional: Modify above function to handle it, if a path doesn't exist. 
 
 The steps can also be found in graph.js
