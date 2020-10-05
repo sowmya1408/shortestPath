@@ -1,0 +1,17 @@
+{
+    "routers": [
+      {
+        "router": 0,
+        "connections": [
+          {
+            "to": 1,
+            "cost": 1
+          },
+          {
+            "to": 2,
+            "cost": 3
+          }
+        ]
+      }
+    ]
+  }
