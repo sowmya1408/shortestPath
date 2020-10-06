@@ -34,7 +34,7 @@ You know how it works.
 
 ### Router exercises
 This part of the exercises builds on top of your other exercises regarding routers. In the `v1` folder, we have created a skeleton called router.js. This file contains a node-fetch library which is used to create http-request. This is the library we will use to forward data between our routers. Documentation can be found here: https://github.com/node-fetch/node-fetch
-1. To read data from a http request, we have used the vanilla nodejs approach found on the bottom of this site: https://nodejs.dev/learn/get-http-request-body-data-using-nodejs. Modify the req.on('end') to send the data back to the init.js file. Hint: call `res.end(something)`. If everything is done correctly, you should see the object printed to the terminal. Note that you can run `node --no-warnings init.js` to supress the annoying warning. 
+1. To read data from a http request, we have used the vanilla nodejs approach found on the bottom of this site: https://nodejs.dev/learn/get-http-request-body-data-using-nodejs. Modify the req.on('end') to send the data back to the oneRouter.js file. Hint: call `res.end(something)`. If everything is done correctly, you should see the object printed to the terminal. Note that you can run `node --no-warnings oneRouter.js` to supress the annoying warning. 
 2. The above method uses the `sendInitialPacket` method. Explain what this method does. 
 3. Now that we can read from packages, what we want to do is to send packages between different routers. Go to the `v2` and
     - In `multipleRouters.js` fill out the forEach loop on line 16, where you have to initialize a Router and add it to an array. 
