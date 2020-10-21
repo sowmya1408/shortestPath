@@ -11,7 +11,7 @@ let routers = [];
 const oneRouter = () => {
     //create a new router based on the data.
     // this is the first router in the data.
-    let r = new Router(data.routers[0].router, data.routers[0].router.connections)
+    let r = new Router(data.routers[0].router, data.routers[0].connections)
     routers.push(r);
     /**
      * since we need to wait until the router is initialized,
@@ -35,6 +35,7 @@ const oneRouter = () => {
 
 const sendInitialPacket = (to, body) => {
     let sourceRouter = ports.query("router"+to)[0];
+    console.log(sourceRouter);
     var host = sourceRouter.host.split(":").reverse()[0];
     var port = sourceRouter.port;
     /**

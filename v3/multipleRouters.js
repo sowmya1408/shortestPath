@@ -13,14 +13,23 @@ const multipleRouters = () => {
      */
    
     // your code here
-
+    data.routers.forEach(r => {
+         new Router(r.router, r.connections)
+        routers.push(r);
+    });
+    
     /**
      * 2. build a weighted directional graph and adds the edges 
      * between the nodes through the data.json file
      */
     
     // your code here
-
+    const dataGraph = new jsgraphs.WeightedDiGraph(data.routers.length);
+    routers.forEach(router => {
+        router.connections.forEach(c => {
+            dataGraph.addEdge(new jsgraphs.Edge(c.from, c.to, c.cost))         
+       })
+ })
     /**
      * 3. create a new packet. 
      * create a packet with a name, a source, a destination and a ttl.
@@ -28,9 +37,9 @@ const multipleRouters = () => {
      * the name can be whatever you'd like.
      */
 
-    let demoPacket = new Packet(/*Do something here */);
+    let demoPacket = new Packet("dataRouter", 0, 3, 5 );
     // Add the shortest path to the packet.
-    demoPacket.shortestPath = getShortestPath(graph, demoPacket.source, demoPacket.destination);
+    demoPacket.shortestPath = getShortestPath(dataGraph, demoPacket.source, demoPacket.destination);
 
     /**
      * Prompt is a package to prompt the user though the terminal.
@@ -54,6 +63,21 @@ const multipleRouters = () => {
  */
 const getShortestPath = (graph, from, to)  => {
     // 4. implement this.
+    let sp = [];
+    // write the functionality here. Remember to look at the documentation!
+    var dijkstra = new jsgraphs.Dijkstra(graph, from);
+    for (let v = to; v < graph.V; ++v) {
+      if (dijkstra.hasPathTo(to)) {
+        const path = dijkstra.pathTo(to);
+        for (let i = 0; i < path.length; ++i) {
+          const e = path[i];
+          sp.push(e.to());
+        }
+      }
+    }
+  
+    // return the shortest path as an array
+    return sp;
 }
 
 multipleRouters();

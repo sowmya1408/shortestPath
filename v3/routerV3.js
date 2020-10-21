@@ -20,9 +20,10 @@ class Router{
             req.on('end', () => {
                 if(data.length > 0) {
                     //1. decipher data. hint: JSON.parse()
-
+                     JSON.parse(data);
+                     console.log(data);
                     //2. reconstructing packet from data
-                    let packet = new Packet(/* something here */)
+                    let packet = new Packet("dataRouter", 0, 3, 5 )
                     
                     // console.log("Packet " + packet.id + " received at router " + self.name);
                     if(packet.destination == self.name) {

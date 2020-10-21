@@ -21,13 +21,14 @@ class Router{
                     console.log("Data received at router " + self.name);
                     // you need to write your code here.
                     // decipher buffer data hint: look into JSON.parse:
-                    
+                    JSON.parse(data)
                     // end result with res.end(something);
                     // hint: Remember that res.end takes a string. How can we send an object?
                     // Look in the JSON documentation. 
-                    
+                    res.end('Received data')
                 }
                 else {
+                    console.log(connections);
                     res.end("No data received");
                 }
             })
